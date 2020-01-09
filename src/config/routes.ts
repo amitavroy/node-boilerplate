@@ -1,14 +1,9 @@
+import HomeController from './../controllers/HomeController'
+import MainController from './../controllers/MainController'
+import AuthController from './../controllers/AuthController'
+
 export default [
-  {url: '/', callBack: (req, resp, next) => {
-    console.log('Inside login callback')
-    resp.json("Hi from routes")
-  }},
-  {url: '/home', callBack: (req, resp, next) => {
-    console.log('Inside home callback')
-    resp.json("Hi from routes Home")
-  }},
-  {url: '/login', callBack: (req, resp, next) => {
-    console.log('Inside / callback')
-    resp.json("Login")
-  }}
+  {type: 'get', url: '/', callBack: MainController.index},
+  {type: 'get', url: '/home', callBack: HomeController.home},
+  {type: 'post', url: '/login', callBack: AuthController.index}
 ]

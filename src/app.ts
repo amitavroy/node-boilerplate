@@ -1,6 +1,7 @@
 import * as express from 'express'
-import Routes from './src/config/routes'
-import IntRoute from './src/interfaces/IntRoute'
+import Routes from './config/routes'
+import IntRoute from './interfaces/IntRoute'
+import * as path from 'path'
 
 class App {
   public port: number
@@ -13,12 +14,18 @@ class App {
     this.routes = Routes
 
     this.addRoutes(this.routes)
+    this.addView()
   }
 
   private addRoutes(routes: Array<IntRoute>) {
     routes.forEach((route: IntRoute) => {
-      this.app.use(route.url, route.callBack)
+      this.app[route.type](route.url, route.callBack)
     })
+  }
+
+  private addView() {
+    this.app.set('views', path.join(__dirname, 'views'));
+    this.app.set('view engine', 'ejs')
   }
 
   public listen() {

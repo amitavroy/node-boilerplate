@@ -1,4 +1,5 @@
 interface IntRoute {
+  type: string
   url: string
   callBack: Function
 }
