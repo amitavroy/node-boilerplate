@@ -1,5 +1,7 @@
-import {Sequelize} from 'sequelize'
+import { Sequelize } from 'sequelize'
+import dotenv from 'dotenv'
 
+dotenv.config()
 class DatabaseService {
   private static _singleton: boolean = true
   private static _instance: DatabaseService
@@ -35,6 +37,10 @@ class DatabaseService {
 
   public static getConnect() {
     return this._sequelize
+  }
+
+  public getSequelize() {
+    return DatabaseService._sequelize
   }
 
   public async getDbUsers() {

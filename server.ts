@@ -1,8 +1,7 @@
 import App from './src/app'
-import * as dotenv from 'dotenv'
-import {Sequelize} from 'sequelize'
+import dotenv from 'dotenv'
 
-const config = dotenv.config()
+dotenv.config()
 
 const app = new App({
   port: process.env.APP_PORT,

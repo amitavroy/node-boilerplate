@@ -1,11 +1,10 @@
 import FakeDataService from './../services/FakeDataService'
-import DatabaseService from './../services/DatabaseService'
+import User from './../models/User'
 class MainController {
   public static async index(req, res, next) {
     const users = await FakeDataService.instance.getUsers()
-    const dbUsers = await DatabaseService.instance.getDbUsers()
-
-    res.render('main', {title: process.env.APP_NAME, users})
+    const me = await User.findByPk(1)
+    res.render('main', { title: process.env.APP_NAME, users, me })
   }
 }
 
