@@ -14,14 +14,16 @@ fs.readdirSync('node_modules')
 
 module.exports = {
   entry: './server.ts',
-  mode: "development",
   target: 'node',
+  mode: 'production',
+  node: {
+    __dirname: false
+  },
   output: {
-    filename: 'dist/server.js',
+    filename: 'main.js',
     path: path.resolve(__dirname, 'dist')
   },
   devtool: 'source-map',
-  watch: true,
   optimization: {
     minimizer: [
       new UglifyJsPlugin({

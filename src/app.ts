@@ -1,7 +1,7 @@
-import * as express from 'express'
+import express from 'express'
 import Routes from './config/routes'
 import IntRoute from './interfaces/IntRoute'
-import * as path from 'path'
+import path from 'path'
 
 class App {
   public port: string
@@ -24,7 +24,7 @@ class App {
   }
 
   private addView() {
-    this.app.set('views', path.join(__dirname, 'views'));
+    this.app.set('views', path.join(__dirname, '/../views'));
     this.app.set('view engine', 'ejs')
   }
 

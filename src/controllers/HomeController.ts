@@ -1,6 +1,6 @@
 class HomeController {
-  public static home(req, resp, next) {
-    resp.json("From Home controller")
+  public static home(req, res, next) {
+    res.json("From Home controller")
   }
 }
 
