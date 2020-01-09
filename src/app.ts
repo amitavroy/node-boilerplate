@@ -4,11 +4,11 @@ import IntRoute from './interfaces/IntRoute'
 import * as path from 'path'
 
 class App {
-  public port: number
+  public port: string
   public app: any
   private routes: Array<IntRoute>
 
-  constructor(appInit: {port: number, middlewares: any}) {
+  constructor(appInit: {port: string, middlewares: any}) {
     this.app = express()
     this.port = appInit.port
     this.routes = Routes
