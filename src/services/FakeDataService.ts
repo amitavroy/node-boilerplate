@@ -1,4 +1,4 @@
-import axios from 'axios'
+import HttpService from './HttpService'
 
 class FakeDataService {
   private static _singleton: boolean = true;
@@ -20,7 +20,7 @@ class FakeDataService {
   }
 
   public async getUsers() {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/users')
+    const response = await HttpService.instance.get('https://jsonplaceholder.typicode.com/users')
     return response.data
   }
 }
