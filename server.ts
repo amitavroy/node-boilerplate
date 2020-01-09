@@ -9,19 +9,4 @@ const app = new App({
   middlewares: []
 })
 
-const sequelize = new Sequelize('syncup', 'newuser', 'password', {
-  host: 'localhost',
-  dialect: 'mysql',
-  logging: console.log
-})
-
-sequelize.authenticate()
-  .then(() => {
-    console.log('Database connection success')
-  })
-  .catch(error => {
-    console.log('Error connecting to the database:', error.parent.sqlMessage)
-    // Need to redirect to error page
-  })
-
 app.listen()
